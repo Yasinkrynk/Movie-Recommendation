@@ -5,13 +5,13 @@
 
 To set up the web interface:
 
-**1)Open 'app' folder**
+1)Open 'app' folder
 
-**2)Create virtual env**
+2)Create virtual env
 
-**3)pip install -r requirements.txt**
+3)pip install -r requirements.txt
 
-**4)Run 'main.py'**
+4)Run 'main.py'
 
 
 or you can visit the website:
