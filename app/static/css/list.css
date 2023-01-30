@@ -1,0 +1,94 @@
+.article {
+    border-radius: 12px;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 7px;
+    padding: 10px 12px;
+    width: auto;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: -50px;
+}
+
+.header{
+    margin-bottom: 2px;
+    font-size: 30px;
+}
+.sub-list{
+    margin: 0 0 22px;
+    width: auto;
+}
+.list{
+    display: table;
+    width: 100%;
+}
+.mode-advanced{
+    font-size: 15px;
+    padding: 15px 20px;
+    position: relative;
+}
+.image{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+    box-sizing: border-box;
+}
+.loadlate{
+    height: 98px;
+    aspect-ratio: auto 67 / 98;
+    width: 67px;
+}
+.item{
+    max-width: 84%;
+    display:inline-block;
+    vertical-align: top;
+}
+.sub-head{
+    font-size: 20px;
+    margin: 0 0 0.5em;
+    padding: 0;
+}
+.text-muted{
+    margin: 0.5em 0 0.75em;
+    line-height: 140%;
+    padding: 0;
+}
+.runtime{
+    font-family: Verdana, Arial, sans-serif;
+}
+.ghost{
+    font-family: Verdana, Arial, sans-serif;
+}
+.genre{
+    font-family: Verdana, Arial, sans-serif;
+}
+.imdb-rating{
+    margin-right: 20px;
+    display: inline-block;
+}
+.star{
+    background-position: -42px top;
+    height: 18px;
+    vertical-align: text-bottom;
+    width: 18px;
+    background-image: url(https://m.media-amazon.com/images/S/sash/Lghmahow7r9CQqO.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+strong{
+    font-weight: bolder;
+}
+.meta-score{
+    display: inline-block;
+}
+.meta{
+    color: #fff;
+    display: inline-block;
+    padding: 1px 4px;
+    vertical-align: baseline;
+    background-color: #61c74f;
+}
+.votes{
+    margin: 0.5em 0 0.75em;
+    line-height: 140%;
+    padding: 0;
+}
