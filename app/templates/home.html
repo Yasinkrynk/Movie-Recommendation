@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Netflix</title> 
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
+    </script>  
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
+    </script>  
+    
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+        rel="stylesheet" type="text/css" /> 
+
+</head>
+<body>
+
+    <div class="container">
+        <nav class="navbar">
+            <div class="left">
+                <img src="static/css/netflix-logo.png" alt="">
+            </div>
+            <div class="right">
+                <select name="language" class="language">
+                    <option value="English">English</option>
+                    <option value="Türkçe">Türkçe</option>
+                </select>
+            </div>
+        </nav>
+        <div class="title">
+            <div class="content">
+                <h1>Search Movie</h1>
+                <form action="/movies" method="POST" autocomplete="off">
+                    <h3>Ready to watch? Enter the movie name to get recommendation.</h3>
+                    <div class="search">
+                        <input type="search" name="search" placeholder="Movie" id="autocomplete" required>
+                        <button type="submit" style="color: white;">Get Started  ></button>
+                        {% with messages = get_flashed_messages() %}
+                            {%if messages%}
+                                {%for message in messages%}
+                                <div class="alert">
+                                    {{message}}
+                                </div>
+                                {%endfor%}
+                            {%endif%}
+                        {%endwith%}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $( function() {
+    var availableTags = [
+        {% for i in data %}
+            "{{i}}",
+        {% endfor %}
+    ];
+    $( "#autocomplete" ).autocomplete({
+      source: availableTags,
+      source: function(request, response) {
+                  var results = $.ui.autocomplete.filter(availableTags, request.term);
+                  response(results.slice(0, 10));
+      }
+    });
+  } );
+</script>
+
+</html>
