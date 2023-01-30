@@ -2,8 +2,6 @@
 
 'demo.ipynb' is main file that contains codes.
 'ml-latest-small' is folder that contains datas.
-You can watch from this link for description of project:
-https://www.youtube.com/watch?v=L7B66id4zOo 
 
 To set up the web interface:
 1)Open 'app' folder
