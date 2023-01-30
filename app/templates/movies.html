@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/movies.css">
+    <link rel="stylesheet" href="static/css/list.css">
+    <title>Netflix</title> 
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
+    </script>  
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
+    </script>  
+    
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+        rel="stylesheet" type="text/css" /> 
+
+</head>
+<body>
+
+    <div class="container">
+        <nav class="navbar">
+            <div class="left">
+                <img src="static/css/netflix-logo.png" alt="">
+            </div>
+            <div class="right">
+                <select name="language" class="language">
+                    <option value="English">English</option>
+                    <option value="Türkçe">Türkçe</option>
+                </select>
+            </div>
+        </nav>
+        <div class="title">
+            <div class="content">
+                <h2>Search Movie</h2>
+                <form action="/movies" method="POST" autocomplete="off">
+                    <div class="search">
+                        <input type="search" name="search" placeholder="Movie" id="autocomplete" required>
+                        <button type="submit" style="color: white;">Get Started  ></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="article">
+            <h2 class="header">Recommended Movies</h2>
+            <div class="sub-list">
+                <div class="list">
+                    {%for i in range(0,10)%}
+                    <div class="mode-advanced">
+                        <div class="image" >
+                            <img src={{arr[i][0]}}
+                            alt="" class="loadlate">
+                        </div>
+                        <div class="item">
+                            <h3 class="sub-head">{{i+1}}. {{r_list[i]}}</h3>
+                            <p class="text-muted">
+                                <span class="runtime">{{arr[i][1]}}</span>
+                                <span class="ghost">|</span>
+                                <span class="genre">{{arr[i][2]}}</span>
+                            </p>
+
+                            <div class="rating-bar">
+                                <div class="imdb-rating">
+                                    <span class="star"></span>
+                                    <strong>{{arr[i][3]}}</strong>
+                                </div>
+                                <div class="meta-score">
+                                    <span class="meta">{{arr[i][4]}} </span>
+                                     Metascore
+                                </div>
+                            </div>
+
+                            <p class="text-muted">
+                                {{arr[i][5]}}
+                            </p>
+
+                            <p class="votes">
+                                <span class="text-muted">Votes:</span>
+                                <span>{{arr[i][6]}}</span>
+                                <span class="ghost">|</span>
+                                <span class="text-muted">Gross:</span>
+                                <span>{{arr[i][7]}}</span>
+                            </p>
+
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $( function() {
+      var availableTags = [
+          {% for i in data %}
+              "{{i}}",
+          {% endfor %}
+      ];
+      $( "#autocomplete" ).autocomplete({
+        source: availableTags,
+        source: function(request, response) {
+                    var results = $.ui.autocomplete.filter(availableTags, request.term);
+                    response(results.slice(0, 10));
+        }
+      });
+    } );
+    </script>
+
+</html>
