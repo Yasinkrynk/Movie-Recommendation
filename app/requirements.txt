@@ -1,0 +1,8 @@
+pandas
+matplotlib
+scipy
+scikit-learn
+ipywidgets
+Flask
+fuzzywuzzy
+requests
